@@ -10,10 +10,9 @@ const totalLikes = (blogs) => {
 }
 
 const favoriteBlog = (blogs) => {
-  const array = blogs.map(blog => blog.likes)
-  const max = Math.max(...array)
-  const index = array.indexOf(max)
-  const response = blogs[index]
+
+  const response = blogs.reduce((fav, blog) => (fav.likes > blog.likes ?  fav : blog))
+  
   return {
     title: response.title,
     author: response.author,
