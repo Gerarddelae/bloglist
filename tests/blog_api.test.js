@@ -39,6 +39,11 @@ test("response have same length", async () => {
   expect(response.body).toHaveLength(initialBlogs.length)
 })
 
+test("blog have transformed id", async () => {
+  const response = await api.get("/api/blogs")
+  expect(response.body[0].id).toBeDefined()
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
