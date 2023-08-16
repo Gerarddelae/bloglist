@@ -44,6 +44,26 @@ test("blog have transformed id", async () => {
   expect(response.body[0].id).toBeDefined()
 })
 
+test("a valid blog can be added", async () => {
+  const newBlog = {
+    title: "how to run",
+    author: "bolt",
+    url: "httss",
+    likes: 4
+  }
+
+  await api
+    .post("/api/blogs")
+    .send(newBlog)
+    .expect(200)
+    .expect("Content-Type", /application\/json/)
+  
+  const finalBlogs = await Blog.find({})
+  expect(finalBlogs.length).toBe(initialBlogs.length + 1)
+  const titles = finalBlogs.map(n => n.title)
+  expect(titles).toContain("how to run")
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
