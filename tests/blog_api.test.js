@@ -80,6 +80,18 @@ test("default likes set to 0", async () => {
   expect(finalBlogs[finalBlogs.length - 1].likes).toBeDefined()
 })
 
+test("url and title are required", async () => {
+  const newBlog = {
+    author: "bolt",
+    likes: 4
+  }
+
+  await api
+    .post("/api/blogs")
+    .send(newBlog)
+    .expect(400)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
