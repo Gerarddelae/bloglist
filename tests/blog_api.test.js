@@ -106,6 +106,26 @@ test("deleting a Blog by id obtain 204", async () => {
   expect(titles).not.toContain(blogToDelete.title)
 })
 
+test("updating a blog by id return 200", async () => {
+  const startBlogs = await Blog.find({})
+  const blogToUpdate = startBlogs[0]
+  const updatedBlog = {
+    "title": "How to edit",
+    "author": "ricky",
+    "url": "httppp",
+    "likes": 10,
+    "id": blogToUpdate.id
+  }
+
+  await api
+    .put(`/api/blogs/${blogToUpdate.id}`)
+    .send(updatedBlog)
+    .expect(200)
+
+  const endBlogs = await Blog.find({})
+  expect(endBlogs[0].likes).toBe(updatedBlog.likes)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })

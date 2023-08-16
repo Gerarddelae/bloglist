@@ -1,0 +1,12 @@
+PUT http://localhost:3003/api/blogs/64dc09d2de17e80bc60b5263
+content-Type: application/json
+
+{
+  "title": "How to edit",
+  "author": "ricky",
+  "url": "httppp",
+  "likes": 10
+}
+
+###
+GET http://localhost:3003/api/blogs/64dc09d2de17e80bc60b5263
