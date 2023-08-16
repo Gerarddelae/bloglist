@@ -64,6 +64,22 @@ test("a valid blog can be added", async () => {
   expect(titles).toContain("how to run")
 })
 
+test("default likes set to 0", async () => {
+  const newBlog = {
+    title: "how to sit",
+    author: "urban",
+    url: "htcs"
+  }
+  await api
+    .post("/api/blogs")
+    .send(newBlog)
+    .expect(200)
+    .expect("Content-Type", /application\/json/)
+
+  const finalBlogs = await Blog.find({})
+  expect(finalBlogs[finalBlogs.length - 1].likes).toBeDefined()
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
