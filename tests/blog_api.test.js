@@ -92,6 +92,20 @@ test("url and title are required", async () => {
     .expect(400)
 })
 
+test("deleting a Blog by id obtain 204", async () => {
+  const startBlogs = await Blog.find({})
+  const blogToDelete = startBlogs[0]
+
+  await api
+    .delete(`/api/blogs/${blogToDelete.id}`)
+    .expect(204)
+  
+  const endBlogs = await Blog.find({})
+  const titles = endBlogs.map(n => n.title)
+
+  expect(titles).not.toContain(blogToDelete.title)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
