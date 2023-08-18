@@ -1,0 +1,14 @@
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+  "username": "maokai",
+  "name": "mao",
+  "password": "cachiporra"
+}
+
+###
+GET http://localhost:3003/api/users
+
+###
+DELETE http://localhost:3003/api/users/64dfb543721cb66ec550d372
