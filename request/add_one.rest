@@ -1,12 +1,12 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdHJpY2lvIiwiaWQiOiI2NGRmYjhmMjYzY2M0OGNhYzkzOThmNWQiLCJpYXQiOjE2OTIzOTgzNzh9.eqAh0fh2lfikSOId628clKM7U7MdODe2H8KM93fyX0Q
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBhdHJpY2lvIiwiaWQiOiI2NGRmYjhmMjYzY2M0OGNhYzkzOThmNWQiLCJpYXQiOjE2OTI0MDQ3MDYsImV4cCI6MTY5MjQwODMwNn0.7P-t_0J4nb_y30CdeMZgsA-Ysc3wruENlmZRwdiYDMw
 
 {
-  "title": "How to refactor 3",
+  "title": "How to refactor 4",
   "author": "kobe",
-  "url": "ninini",
-  "likes": 15,
+  "url": "prueba",
+  "likes": 16,
   "userId": "64dfb8f263cc48cac9398f5d"
 }
 
